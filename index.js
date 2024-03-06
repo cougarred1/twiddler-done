@@ -27,12 +27,12 @@ $(document).ready(() => {
       $tweetsDiv.prepend($tweet);
       $tweet.prepend($userName)
 
-      $('.username').on('click', function () {
+      $userName.on('click', function () {
         let username = $(this).text();
         console.log(username);
 
         $tweetsDiv.html('');
-        $tweetsDiv.prepend(makeNewTweets(streams.users[username]));
+        $tweetsDiv.prepend(makeNewTweets(streams.users[tweet.user]));
 
       });
     });
@@ -50,12 +50,11 @@ $(document).ready(() => {
 
     nameTracker = null;
 
-    tweets.sort((a, b) => b.created_at - a.created_at);
 
     $tweetsDiv.html('');
 
 
-    $tweetsDiv.append(makeNewTweets(tweets));
+    $tweetsDiv.prepend(makeNewTweets(tweets));
   })
 
   // Input fields for username and tweet message
