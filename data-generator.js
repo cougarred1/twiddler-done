@@ -5,12 +5,12 @@
 
 // Set up data structures
 const streams = {
-  home: [],
+  home: [], //array of all the tweets
   users: {
     shawndrost: [],
     sharksforcheap: [],
     mracus: [],
-    douglascalhoun: [],
+    douglascalhoun: [], //properties for each user
   },
 };
 const users = Object.keys(streams.users);
@@ -18,6 +18,7 @@ const users = Object.keys(streams.users);
 // Utility function for adding tweets to our data structures
 const addTweet = (newTweet) => {
   const username = newTweet.user;
+  // console.log(username);
   streams.users[username].push(newTweet);
   streams.home.push(newTweet);
 };
@@ -74,6 +75,8 @@ const writeTweet = (message) => {
     throw new Error('Set the global visitor property!');
   }
 
+
+  //blue print of the created tweet, including the user name and the message of each individual who tweeted
   const tweet = {
     user: visitor,
     message: message,
